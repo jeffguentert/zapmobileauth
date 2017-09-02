@@ -48,13 +48,15 @@ app.get('/', function (req, res, next) {
       returnResponseToClient('error');
     })
   }
+//{{url}}/oauth2/v1/authorize?client_id={{clientId}}
+//&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}
 
   let getAuthCode = function (st) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize?"+
         "client_id=0oabuzise8t693SDZ0h7"+
-        "&response_type=id_token"+
-        "&response_mode=page"+
+        "&response_type=code"+
+        "&response_mode=query"+
         "&scope=openid"+
         "&redirect_uri=https://zapmobileauth.herokuapp.com"+
         "&state=&nonce="+
