@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const rp = require('request-promise');
-app.set('port', (process.env.PORT || 5000));
+const port = process.env.PORT || 3000;
 app.use(function(req, res, next) {
     if ('OPTIONS' == req.method) {
       res.header('Access-Control-Allow-Origin', '*');
@@ -33,13 +33,13 @@ app.get('/', function (req, res, next) {
             "warnBeforePasswordExpired": true
           }
         })
-    };
+    }
     rp(options).then(function (a) {
        //res.write( response);
        var respJson = JSON.parse(a);
-       //res.send(respJson.sessionToken);
+       res.send(respJson.sessionToken);
        console.log('r', respJson.sessionToken);
-       getAuthCode(respJson.sessionToken);
+       //getAuthCode(respJson.sessionToken);
        //getAuthCode(respJson.sessionToken);
       // Handle the response
     })
@@ -111,6 +111,4 @@ http://localhost&state=&nonce=&sessionToken=20111XXpc8ef5o0xz54_h7zEOPFRFd8kzDeO
 */
 
 
-app.listen(80, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.listen(port);
