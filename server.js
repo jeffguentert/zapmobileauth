@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const rp = require('request-promise')
+const rp = require('request-promise');
+app.set('port', (process.env.PORT || 5000));
 app.use(function(req, res, next) {
     if ('OPTIONS' == req.method) {
       res.header('Access-Control-Allow-Origin', '*');
