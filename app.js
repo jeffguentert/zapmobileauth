@@ -76,6 +76,7 @@ app.get('/', function (req, res, next) {
     })
   }
 */
+  }
   getSessionToken();
   function returnResponseToClient(r) {
     res.send(r);
