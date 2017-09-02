@@ -82,8 +82,6 @@ app.get('/', function (req, res, next) {
   }
 })
 
-
-
 /*post
 https://dev-505299-admin.oktapreview.com/api/v1/authn
 header
