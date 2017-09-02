@@ -62,8 +62,8 @@ app.get('/', function (req, res, next) {
         method: 'GET',
     };
     console.log(options);
-    //returnResponseToClient('error');
-
+    returnResponseToClient(options + st);
+/*
     rp(options).then(function (a) {
 
        console.log(options);
@@ -75,7 +75,7 @@ app.get('/', function (req, res, next) {
       returnResponseToClient('error');
     })
   }
-
+*/
   getSessionToken();
   function returnResponseToClient(r) {
     res.send(r);
