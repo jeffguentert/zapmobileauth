@@ -54,10 +54,9 @@ app.get('/', function (req, res, next) {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize?"+
         "client_id=0oabuzise8t693SDZ0h7"+
         "&response_type=id_token"+
-        "&response_mode=fragment"+
+        "&response_mode=page"+
         "&scope=openid"+
         "&redirect_uri=https://zapmobileauth.herokuapp.com"+
-        "&display=page"+
         "&state=&nonce="+
         "&sessionToken="+st,
         method: 'GET',
