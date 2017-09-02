@@ -55,7 +55,7 @@ app.get('/', function (req, res, next) {
         "&response_type=id_token"+
         "&response_mode=fragment"+
         "&scope=openid"+
-        "&redirect_uri=http://98.248.147.220:3000"+
+        "&redirect_uri=https://zapmobileauth.herokuapp.com:3000/"+
         "&display=page"+
         "&state=&nonce="+
         "&sessionToken="+st,
