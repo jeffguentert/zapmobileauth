@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "0.10"
+env:
+script: "npm run test"
+notifications:
+    email:
+        recipients:
+          - github@konsoletek.com
+        on_success: always
+        on_failure: always
