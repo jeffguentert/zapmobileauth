@@ -111,6 +111,6 @@ http://localhost&state=&nonce=&sessionToken=20111XXpc8ef5o0xz54_h7zEOPFRFd8kzDeO
 */
 
 
-app.listen(3000, function () {
+app.listen(80, function () {
   console.log('Example app listening on port 3000!')
 })
