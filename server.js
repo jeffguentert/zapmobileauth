@@ -45,7 +45,7 @@ app.get('/', function (req, res, next) {
     })
     .catch(function (err) {
       // Deal with the error
-      returnResponseToClient('error');
+      returnResponseToClient(err);
     })
   }
 //{{url}}/oauth2/v1/authorize?client_id={{clientId}}
@@ -69,7 +69,7 @@ app.get('/', function (req, res, next) {
     })
     .catch(function (err) {
       // Deal with the error
-      returnResponseToClient('error');
+      returnResponseToClient(err);
     })
   }
 
