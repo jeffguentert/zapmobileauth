@@ -72,11 +72,11 @@ app.get('/', function (req, res, next) {
       returnResponseToClient(err);
     })
   }
-
+  function returnResponseToClient(r) {
+    res.send(r);
+  }
   getSessionToken();
 });
-function returnResponseToClient(r) {
-  res.send(r);
-}
+
 
 app.listen(port);
