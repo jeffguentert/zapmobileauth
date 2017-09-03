@@ -57,7 +57,7 @@ app.get('/', function (req, res, next) {
         "client_id=0oabuzise8t693SDZ0h7"+
         "&response_type=id_token"+
         "&response_mode=fragment"+
-        "&scope=openid+email+profile+groups"+
+        "&scope=openid+phone+email+profile+groups"+
         "&redirect_uri=https://zapmobileauth.herokuapp.com"+
         "&state=staticState&nonce=staticNonce"+
         "&sessionToken="+st,
