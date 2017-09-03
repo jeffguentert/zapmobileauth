@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
       next();
     }
 });
-app.get('/', function (req, res, next) {
+app.get('/index.html', function (req, res, next) {
   let getSessionToken = function(){
     let options = {
         uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
