@@ -54,9 +54,7 @@ app.get('/index.html', function (req, res, next) {
             scope: "openid",
             response_type: "code",
             response_mode: "query",
-            nonce: "",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
-            state: ""
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"
         },
         method: 'GET'
     };
