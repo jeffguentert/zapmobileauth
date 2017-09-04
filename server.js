@@ -55,11 +55,11 @@ app.get('/index.html', function (req, res, next) {
   let getAuthCode = function (st) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
-        method: "POST",
+        method: "GET",
         qs: {
             sessionToken: st,
             client_id: "0oabwlejtqISPrMij0h7", //"0oabuzise8t693SDZ0h7",
-            scope: "openid email",
+            scope: "openid",
             response_type: "id_token",
             response_mode: "fragment",
             nonce: "staticNonce",
