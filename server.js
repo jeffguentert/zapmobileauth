@@ -8,7 +8,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
   next();
 });
-var urlParams = new URLSearchParams(window.location.search);
 
 app.get('/index.html', function (req, res, next) {
   let getSessionToken = function() {
@@ -20,8 +19,8 @@ app.get('/index.html', function (req, res, next) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          'username': "jeff.guentert@zaplabs.com",
-          'password': "Test12345",
+          'username': req.query.username,
+          'password': req.query.password,
           'options': {
             "multiOptionalFactorEnroll": true,
             "warnBeforePasswordExpired": true
@@ -31,9 +30,9 @@ app.get('/index.html', function (req, res, next) {
     rp(options).then(function (a) {
        //res.write( response);
        var respJson = JSON.parse(a);
-       //res.send(respJson.sessionToken);
-       //console.log('r', respJson.sessionToken);
-       getAuthCode(respJson.sessionToken);
+       res.send(respJson.sessionToken);
+       console.log('r', respJson.sessionToken);
+       //getAuthCode(respJson.sessionToken);
     })
     .catch(function (err) {
       // Deal with the error
