@@ -3,8 +3,6 @@ const cors = require('cors');
 const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
-//const cors = require('cors');
-//app.use(cors({credentials: true, origin: true}));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -32,9 +30,9 @@ app.get('/index.html', function (req, res, next) {
     rp(options).then(function (a) {
        //res.write( response);
        var respJson = JSON.parse(a);
-       res.send(respJson.sessionToken);
+       //res.send(respJson.sessionToken);
        console.log('r', respJson.sessionToken);
-       //getAuthCode(respJson.sessionToken);
+       getAuthCode(respJson.sessionToken);
 
     })
     .catch(function (err) {
