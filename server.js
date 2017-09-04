@@ -5,10 +5,10 @@ const rp = require('request-promise');
 const port = process.env.PORT || 3000;
 app.use(function(req, res, next) {
     if ('OPTIONS' == req.method) {
-      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Origin', 'http://localhost');
       res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      //res.header('Access-Control-Allow-Credentials', true);
-      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With','uuid','zap_mobile_session');
+      res.header('Access-Control-Allow-Credentials', true);
+      res.header('Content-Type','X-Requested-With','accept','Origin','Access-Control-Request-Method','Access-Control-Request-Headers','zap_mobile_session','uuid');
       res.send(200);
     }
     else {
