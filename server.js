@@ -39,18 +39,21 @@ app.get('/index.html', function (req, res, next) {
       returnResponseToClient(err);
     })
   }
-//{{url}}/oauth2/v1/authorize?client_id={{clientId}}
-//&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}
+
+//	openIdUrl ="https://" + orgUrl + "/oauth2/v1/authorize?sessionToken="+sessionToken+"&client_id="+clientId+"
+//&scope=openid+phone+email+profile+groups&response_type=" + tokenType + "&response_mode=fragment&nonce=staticNonce
+//&redirect_uri="+redirectUri+"&state=staticState"
+
 
   let getAuthCode = function (st) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize?"+
         "&sessionToken="+st+"&client_id=0oabuzise8t693SDZ0h7"+
-        "&response_type=code"+
-        "&response_mode=query"+
-        "&scope=openid+phone+email+profile+groups"+
+        "&response_type=id_token"+
+        "&response_mode=fragment"+
+        "&scope=openid+email"+
         "&redirect_uri=https://zapmobileauth.herokuapp.com/index.html"+
-        "&state=&nonce=",
+        "&nonce=staticNonce&state=staticState",
         method: 'GET',
     };
     console.log(options);
