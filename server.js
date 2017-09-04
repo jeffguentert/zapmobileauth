@@ -3,6 +3,8 @@ const cors = require('cors');
 const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
+//const cors = require('cors');
+//app.use(cors({credentials: true, origin: true}));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
