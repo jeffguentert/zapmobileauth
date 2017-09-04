@@ -10,34 +10,41 @@ app.use(function(req, res, next) {
 });
 
 app.get('/index.html', function (req, res, next) {
-  let getSessionToken = function() {
-    let options = {
-        uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'username': req.query.username,
-          'password': req.query.password,
-          'options': {
-            "multiOptionalFactorEnroll": false,
-            "warnBeforePasswordExpired": false
-          }
-        })
+
+  if(req.query.username) {
+    let getSessionToken = function() {
+      let options = {
+          uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'username': req.query.username,
+            'password': req.query.password,
+            'options': {
+              "multiOptionalFactorEnroll": false,
+              "warnBeforePasswordExpired": false
+            }
+          })
+      }
+      rp(options).then(function (a) {
+         //res.write( response);
+         var respJson = JSON.parse(a);
+         //res.send(respJson.sessionToken);
+         console.log('r', respJson.sessionToken);
+         getAuthCode(respJson.sessionToken);
+      })
+      .catch(function (err) {
+        // Deal with the error
+        returnResponseToClient(err);
+      })
     }
-    rp(options).then(function (a) {
-       //res.write( response);
-       var respJson = JSON.parse(a);
-       //res.send(respJson.sessionToken);
-       console.log('r', respJson.sessionToken);
-       getAuthCode(respJson.sessionToken);
-    })
-    .catch(function (err) {
-      // Deal with the error
-      returnResponseToClient(err);
-    })
+  } else if(req.query.code) {
+    res.send('h');
+  } else {
+    res.send('n');
   }
 
   //openIdUrl ="https://" + orgUrl + "/oauth2/v1/authorize?sessionToken="+sessionToken+"
@@ -73,7 +80,5 @@ app.get('/index.html', function (req, res, next) {
   }
   getSessionToken();
 });
-app.get('/code.html', function (req, res, next) {
-  res.send();
-});
+
 app.listen(port);
