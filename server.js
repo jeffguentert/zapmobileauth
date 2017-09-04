@@ -51,7 +51,6 @@ app.get('/index.html', function (req, res, next) {
   //&client_id="+clientId+"&scope=openid+phone+email+profile+groups&response_type=" + tokenType + "
   //&response_mode=fragment&nonce=staticNonce&redirect_uri="+redirectUri+"&state=staticState"
 
-
   let getAuthCode = function (st) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
