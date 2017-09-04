@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
-const oid = process.env.IP || "123";
+const oid = process.env.okta_cid || "123";
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
