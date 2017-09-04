@@ -40,19 +40,24 @@ app.get('/index.html', function (req, res, next) {
     })
   }
 
-//	openIdUrl ="https://" + orgUrl + "/oauth2/v1/authorize?sessionToken="+sessionToken+"&client_id="+clientId+"
-//&scope=openid+phone+email+profile+groups&response_type=" + tokenType + "&response_mode=fragment&nonce=staticNonce
-//&redirect_uri="+redirectUri+"&state=staticState"
+  //openIdUrl ="https://" + orgUrl + "/oauth2/v1/authorize?sessionToken="+sessionToken+"
+  //&client_id="+clientId+"&scope=openid+phone+email+profile+groups&response_type=" + tokenType + "
+  //&response_mode=fragment&nonce=staticNonce&redirect_uri="+redirectUri+"&state=staticState"
+
 
   let getAuthCode = function (st) {
     let options = {
-        uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize?"+
-        "&sessionToken="+st+"&client_id=0oabuzise8t693SDZ0h7"+
-        "&response_type=id_token"+
-        "&response_mode=fragment"+
-        "&scope=openid+email"+
-        "&redirect_uri=https://zapmobileauth.herokuapp.com/index.html"+
-        "&nonce=staticNonce&state=staticState",
+        uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
+        qs: {
+            sessionToken: st,
+            client_id: "0oabuzise8t693SDZ0h7",
+            response_type: "id_token",
+            response_mode: "fragment",
+            scope: "openid",
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
+            nonce: "staticNonce",
+            state: "staticState"
+        },
         method: 'GET',
         headers: {
           'Accept': 'application/json',
