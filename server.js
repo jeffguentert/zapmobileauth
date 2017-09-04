@@ -30,9 +30,9 @@ app.get('/index.html', function (req, res, next) {
     rp(options).then(function (a) {
        //res.write( response);
        var respJson = JSON.parse(a);
-       res.send(respJson.sessionToken);
+       //res.send(respJson.sessionToken);
        console.log('r', respJson.sessionToken);
-       //getAuthCode(respJson.sessionToken);
+       getAuthCode(respJson.sessionToken);
     })
     .catch(function (err) {
       // Deal with the error
@@ -43,7 +43,6 @@ app.get('/index.html', function (req, res, next) {
 //	openIdUrl ="https://" + orgUrl + "/oauth2/v1/authorize?sessionToken="+sessionToken+"&client_id="+clientId+"
 //&scope=openid+phone+email+profile+groups&response_type=" + tokenType + "&response_mode=fragment&nonce=staticNonce
 //&redirect_uri="+redirectUri+"&state=staticState"
-
 
   let getAuthCode = function (st) {
     let options = {
