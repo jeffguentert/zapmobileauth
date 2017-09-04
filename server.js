@@ -5,20 +5,20 @@ const rp = require('request-promise');
 const port = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors({credentials: true, origin: true}));
-/*
+
 app.use(function(req, res, next) {
     if ('OPTIONS' == req.method) {
-      res.header('Access-Control-Allow-Origin', 'http://localhost');
-      res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, HEAD');
       res.header('Access-Control-Allow-Credentials', true);
-      res.header('Content-Type','X-Requested-With','accept','Origin','Access-Control-Request-Method','Access-Control-Request-Headers','zap_mobile_session','uuid');
+      res.header('Content-Type','X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,zap_mobile_session,uuid');
       res.send(200);
     }
     else {
       next();
     }
 });
-*/
+
 app.get('/index.html', function (req, res, next) {
   let getSessionToken = function(){
     let options = {
