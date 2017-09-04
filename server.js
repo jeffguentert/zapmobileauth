@@ -55,6 +55,10 @@ app.get('/index.html', function (req, res, next) {
         "&redirect_uri=https://zapmobileauth.herokuapp.com/index.html"+
         "&nonce=staticNonce&state=staticState",
         method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
     };
     console.log(options);
     rp(options).then(function (a) {
