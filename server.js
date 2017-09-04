@@ -45,7 +45,7 @@ app.get('/index.html', function (req, res, next) {
     getSessionToken();
   }
   else {
-    res.send('n');
+    res.send('other');
   }
 
   //openIdUrl ="https://" + orgUrl + "/oauth2/v1/authorize?sessionToken="+sessionToken+"
@@ -55,7 +55,6 @@ app.get('/index.html', function (req, res, next) {
   let getAuthCode = function (st) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
-        baseUrl: "https://zapmobileauth.herokuapp.com/index.html",
         method: "GET",
         qs: {
             sessionToken: st,
@@ -84,6 +83,7 @@ app.get('/index.html', function (req, res, next) {
   function returnResponseToClient(r) {
     res.send(r);
   }
+
 });
 
 app.listen(port);
