@@ -3,14 +3,14 @@ const cors = require('cors');
 const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
-//const cors = require('cors');
-//app.use(cors({credentials: true, origin: true}));
+
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
   next();
 });
+
 app.get('/index.html', function (req, res, next) {
   let getSessionToken = function(){
     let options = {
