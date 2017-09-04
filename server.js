@@ -67,6 +67,7 @@ app.get('/index.html', function (req, res, next) {
             redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"
         },
         resolveWithFullResponse: true,
+        followRedirect: true,
         simple: false //handle promise other than 200
     };
     console.log(options);
