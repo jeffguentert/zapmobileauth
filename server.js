@@ -22,8 +22,8 @@ app.get('/index.html', function (req, res, next) {
           'username': req.query.username,
           'password': req.query.password,
           'options': {
-            "multiOptionalFactorEnroll": true,
-            "warnBeforePasswordExpired": true
+            "multiOptionalFactorEnroll": false,
+            "warnBeforePasswordExpired": false
           }
         })
     }
