@@ -55,16 +55,18 @@ app.get('/index.html', function (req, res, next) {
   let getAuthCode = function (st) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
+        method: "GET",
         qs: {
             sessionToken: st,
             client_id: "0oabuzise8t693SDZ0h7",
             scope: "openid",
-            response_type: "id_token",
+            response_type: "id_token code",
             response_mode: "fragment",
+            nonce: "staticNonce",
             display: "page",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html?"
-        },
-        method: 'GET'
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
+            state: "staticState"
+        }
     };
     console.log(options);
     rp(options).then(function (a) {
