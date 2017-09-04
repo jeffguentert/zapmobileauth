@@ -41,9 +41,9 @@ app.get('/index.html', function (req, res, next) {
         returnResponseToClient(err);
       })
     }
-  } else if(req.query.code) {
-    res.send('h');
-  } else {
+    getSessionToken();
+  }
+  else {
     res.send('n');
   }
 
@@ -78,7 +78,7 @@ app.get('/index.html', function (req, res, next) {
   function returnResponseToClient(r) {
     res.send(r);
   }
-  getSessionToken();
+
 });
 
 app.listen(port);
