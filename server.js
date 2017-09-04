@@ -8,6 +8,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
   next();
 });
+var urlParams = new URLSearchParams(window.location.search);
 
 app.get('/index.html', function (req, res, next) {
   let getSessionToken = function() {
