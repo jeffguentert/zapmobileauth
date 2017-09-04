@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
+const oid = process.env.IP || "123";
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -57,7 +58,7 @@ app.get('/index.html', function (req, res, next) {
         method: "GET",
         qs: {
             sessionToken: st,
-            client_id: "pIMuBGzzGEEC6frFrCHS", //"0oabuzise8t693SDZ0h7",
+            client_id: oid, //"0oabuzise8t693SDZ0h7",
             scope: "openid",
             response_type: "code",
             response_mode: "query",
