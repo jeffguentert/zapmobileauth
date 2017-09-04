@@ -58,13 +58,13 @@ app.get('/index.html', function (req, res, next) {
         method: "GET",
         qs: {
             sessionToken: st,
-            client_id: "0oabuzise8t693SDZ0h7",
+            client_id: "0oabwlejtqISPrMij0h7", //"0oabuzise8t693SDZ0h7",
             scope: "openid",
             response_type: "id_token",
             response_mode: "fragment",
             nonce: "staticNonce",
             state: "staticState",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"            
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"
         }
     };
     console.log(options);
