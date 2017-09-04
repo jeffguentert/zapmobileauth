@@ -57,7 +57,7 @@ app.get('/index.html', function (req, res, next) {
         method: "GET",
         qs: {
             sessionToken: st,
-            client_id: "0oabwlejtqISPrMij0h7", //"0oabuzise8t693SDZ0h7",
+            client_id: "pIMuBGzzGEEC6frFrCHS", //"0oabuzise8t693SDZ0h7",
             scope: "openid",
             response_type: "code",
             response_mode: "query",
