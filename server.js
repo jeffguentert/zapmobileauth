@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
@@ -12,7 +11,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/index.html', function (req, res, next) {
-  let getSessionToken = function(){
+  let getSessionToken = function() {
     let options = {
         uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
         method: 'POST',
@@ -35,7 +34,6 @@ app.get('/index.html', function (req, res, next) {
        res.send(respJson.sessionToken);
        console.log('r', respJson.sessionToken);
        //getAuthCode(respJson.sessionToken);
-
     })
     .catch(function (err) {
       // Deal with the error
@@ -71,5 +69,4 @@ app.get('/index.html', function (req, res, next) {
   }
   getSessionToken();
 });
-
 app.listen(port);
