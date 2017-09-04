@@ -62,7 +62,7 @@ app.get('/index.html', function (req, res, next) {
             scope: "openid",
             response_type: "id_token",
             response_mode: "fragment",
-            nonce: "",
+            nonce: "staticState",
             state: "staticState",
             redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"
         },
