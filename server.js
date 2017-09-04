@@ -3,6 +3,9 @@ const cors = require('cors');
 const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
+const cors = require('cors');
+app.use(cors());
+/*
 app.use(function(req, res, next) {
     if ('OPTIONS' == req.method) {
       res.header('Access-Control-Allow-Origin', 'http://localhost');
@@ -15,6 +18,7 @@ app.use(function(req, res, next) {
       next();
     }
 });
+*/
 app.get('/index.html', function (req, res, next) {
   let getSessionToken = function(){
     let options = {
