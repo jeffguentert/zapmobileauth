@@ -50,7 +50,7 @@ app.get('/index.html', function (req, res, next) {
         "&response_mode=query"+
         "&scope=openid+phone+email+profile+groups"+
         "&redirect_uri=https://zapmobileauth.herokuapp.com/index.html"+
-        "&state=staticState&nonce=staticNonce",
+        "&state=&nonce=",
         method: 'GET',
     };
     console.log(options);
