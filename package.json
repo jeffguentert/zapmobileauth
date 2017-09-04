@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.4",
+    "https": "^1.0.0",
     "module": "^1.2.5",
     "oktajs": "^3.0.2",
     "request": "^2.81.0",
