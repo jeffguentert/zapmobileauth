@@ -51,7 +51,7 @@ app.get('/index.html', function (req, res, next) {
         qs: {
             sessionToken: st,
             client_id: "0oabuzise8t693SDZ0h7",
-            response_type: "id_token",
+            response_type: "code id_token",
             response_mode: "fragment",
             scope: "openid",
             redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
