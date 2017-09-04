@@ -10,26 +10,22 @@ app.use(function(req, res, next) {
 });
 
 app.get('/index.html', function (req, res, next) {
-  if(req.query.username) {
-    let getSessionToken = function() {
-      let options = {
-          uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            'username': req.query.username,
-            'password': req.query.password,
-            'options': {
-              "multiOptionalFactorEnroll": false,
-              "warnBeforePasswordExpired": false
-            }
-          })
-      }
-    } else {
-      returnResponseToClient(res);
+  let getSessionToken = function() {
+    let options = {
+        uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          'username': req.query.username,
+          'password': req.query.password,
+          'options': {
+            "multiOptionalFactorEnroll": false,
+            "warnBeforePasswordExpired": false
+          }
+        })
     }
     rp(options).then(function (a) {
        //res.write( response);
@@ -78,5 +74,8 @@ app.get('/index.html', function (req, res, next) {
     res.send(r);
   }
   getSessionToken();
+});
+app.get('/code.html', function (req, res, next) {
+  res.send();
 });
 app.listen(port);
