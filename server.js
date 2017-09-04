@@ -65,7 +65,8 @@ app.get('/index.html', function (req, res, next) {
             nonce: "",
             state: "staticState",
             redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"
-        }
+        },
+        resolveWithFullResponse: true
     };
     console.log(options);
     rp(options).then(function (a) {
