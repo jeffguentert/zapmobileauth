@@ -72,5 +72,4 @@ app.get('/index.html', function (req, res, next) {
   getSessionToken();
 });
 
-
 app.listen(port);
