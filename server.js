@@ -37,11 +37,10 @@ app.get('/index.html', function (req, res, next) {
     rp(options).then(function (a) {
        //res.write( response);
        var respJson = JSON.parse(a);
-       //res.send(respJson.sessionToken);
+       res.send(respJson.sessionToken);
        console.log('r', respJson.sessionToken);
        //getAuthCode(respJson.sessionToken);
-       getAuthCode(respJson.sessionToken);
-      // Handle the response
+
     })
     .catch(function (err) {
       // Deal with the error
