@@ -56,6 +56,10 @@ app.get('/index.html', function (req, res, next) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
         method: "GET",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
         qs: {
             sessionToken: st,
             client_id: "0oabuzise8t693SDZ0h7",
