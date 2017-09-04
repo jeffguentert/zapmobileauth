@@ -56,20 +56,15 @@ app.get('/index.html', function (req, res, next) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
         method: "GET",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
         qs: {
             sessionToken: st,
             client_id: "0oabuzise8t693SDZ0h7",
             scope: "openid",
-            response_type: "id_token code",
+            response_type: "id_token",
             response_mode: "fragment",
-            display: "page",
             nonce: "staticNonce",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
-            state: "staticState"
+            state: "staticState",
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"            
         }
     };
     console.log(options);
