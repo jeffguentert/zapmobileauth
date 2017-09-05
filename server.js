@@ -12,7 +12,7 @@ app.use(function(req, res, next) {
 
 app.get('/index.html', function (req, res, next) {
 
-  if(req.query.username) {
+  //if(req.query.username) {
     let getSessionToken = function() {
       let options = {
           uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
@@ -43,10 +43,10 @@ app.get('/index.html', function (req, res, next) {
       })
     }
     getSessionToken();
-  }
-  else {
-    res.send('other');
-  }
+//  }
+  //else {
+//    res.send('other');
+//  }
 
   //openIdUrl ="https://" + orgUrl + "/oauth2/v1/authorize?sessionToken="+sessionToken+"
   //&client_id="+clientId+"&scope=openid+phone+email+profile+groups&response_type=" + tokenType + "
@@ -70,12 +70,13 @@ app.get('/index.html', function (req, res, next) {
             state: "static-state"
         },
         headers: {
-        'User-Agent': 'Request-Promise'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         },
         useQuerystring: true,
         json: true,
         resolveWithFullResponse: true,
-        followRedirect: false,
+        followAllRedirects: true,
         simple: false //handle promise other than 200
     };
     console.log(options);
