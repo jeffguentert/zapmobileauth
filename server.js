@@ -72,7 +72,8 @@ app.get('/index.html', function (req, res, next) {
         },
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'origin': 'https://zapmobileauth.herokuapp.com/index.html'
         }
 
     };
