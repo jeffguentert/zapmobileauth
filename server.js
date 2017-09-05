@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const rp = require('request-promise');
+var request = require('request');
 const port = process.env.PORT || 3000;
 const oid = process.env.okta_cid || "123";
 
@@ -73,6 +74,9 @@ app.get('/index.html', function (req, res, next) {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
+        agentOptions: {
+          secureProtocol: 'SSLv3_method',
+        }
         useQuerystring: true,
         json: true,
         resolveWithFullResponse: true,
@@ -82,7 +86,7 @@ app.get('/index.html', function (req, res, next) {
         simple: false //handle promise other than 200
     };
     console.log(options);
-    rp(options).then(function (a) {
+    request(options).then(function (a) {
        returnResponseToClient(a);
       // Handle the response
     })
