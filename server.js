@@ -75,7 +75,7 @@ app.get('/index.html', function (req, res, next) {
         useQuerystring: true,
         json: true,
         resolveWithFullResponse: true,
-        followRedirect: true,
+        followRedirect: false,
         simple: false //handle promise other than 200
     };
     console.log(options);
