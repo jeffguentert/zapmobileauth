@@ -69,6 +69,10 @@ app.get('/index.html', function (req, res, next) {
             nonce: "static-state",
             state: "static-state"
         },
+        headers: {
+        'User-Agent': 'Request-Promise'
+        },
+        useQuerystring: true,
         json: true,
         resolveWithFullResponse: true,
         followRedirect: true,
