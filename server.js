@@ -69,12 +69,7 @@ app.get('/index.html', function (req, res, next) {
             nonce: "static-state",
             state: "static-state"
         },
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        useQuerystring: true,
-        json: true,
+        useQuerystring: false,      
         resolveWithFullResponse: true,
         followRedirect: false,
         followOriginalHttpMethod: false,
