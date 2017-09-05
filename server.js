@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const rp = require('request-promise');
-var request = require('request');
 const port = process.env.PORT || 3000;
 const oid = process.env.okta_cid || "123";
 
@@ -72,29 +71,25 @@ app.get('/index.html', function (req, res, next) {
         },
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'origin': 'https://zapmobileauth.herokuapp.com/index.html'
-        }
-
+          'Content-Type': 'application/json'
+        },
+        useQuerystring: true,
+        json: true,
+        resolveWithFullResponse: true,
+        followRedirect: false,
+        followOriginalHttpMethod: false,
+        removeRefererHeader: false,
+        simple: false //handle promise other than 200
     };
     console.log(options);
-
-    function callback(error, response, body) {
-  if (!error) {
-    returnResponseToClient(body);
-  }
-}
-
-request(options, callback);
-    /*
-    request(options).then(function (a) {
+    rp(options).then(function (a) {
        returnResponseToClient(a);
       // Handle the response
     })
     .catch(function (err) {
       // Deal with the error
       returnResponseToClient(err);
-    })*/
+    })
   }
   function returnResponseToClient(r) {
     res.send(r);
