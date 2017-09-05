@@ -33,9 +33,10 @@ app.get('/index.html', function (req, res, next) {
       rp(options).then(function (a) {
          //res.write( response);
          var respJson = JSON.parse(a);
+         res.send(respJson);
          //res.send(respJson.sessionToken);
          console.log('r', respJson.sessionToken);
-         getAuthCode(respJson.sessionToken);
+         //getAuthCode(respJson.sessionToken);
       })
       .catch(function (err) {
         // Deal with the error
@@ -59,7 +60,7 @@ app.get('/index.html', function (req, res, next) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
         method: "GET",
-        qs: {        
+        qs: {
             sessionToken: st,
             client_id: oid,
             scope: "openid",
