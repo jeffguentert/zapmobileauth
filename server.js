@@ -5,8 +5,8 @@ const port = process.env.PORT || 3000;
 const oid = process.env.okta_cid || "123";
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
+  //res.header("Access-Control-Allow-Origin", "http://localhost");
+  //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
   next();
 });
 
