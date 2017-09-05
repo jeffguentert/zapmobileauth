@@ -3,7 +3,7 @@ const app = express();
 const rp = require('request-promise');
 const port = process.env.PORT || 3000;
 const oid = process.env.okta_cid || "123";
-
+require('request-debug')(rp);
 app.use(function(req, res, next) {
   //res.header("Access-Control-Allow-Origin", "http://localhost");
   //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
