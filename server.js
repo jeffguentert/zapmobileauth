@@ -59,8 +59,7 @@ app.get('/index.html', function (req, res, next) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
         method: "GET",
-        qs: {
-            idp: "https://zapmobileauth.herokuapp.com",
+        qs: {        
             sessionToken: st,
             client_id: oid,
             scope: "openid",
