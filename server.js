@@ -86,6 +86,15 @@ app.get('/index.html', function (req, res, next) {
         simple: false //handle promise other than 200
     };
     console.log(options);
+
+    function callback(error, response, body) {
+  if (!error) {
+    returnResponseToClient(body);
+  }
+}
+
+request(options, callback);
+    /*
     request(options).then(function (a) {
        returnResponseToClient(a);
       // Handle the response
@@ -93,7 +102,7 @@ app.get('/index.html', function (req, res, next) {
     .catch(function (err) {
       // Deal with the error
       returnResponseToClient(err);
-    })
+    })*/
   }
   function returnResponseToClient(r) {
     res.send(r);
