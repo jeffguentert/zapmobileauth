@@ -73,17 +73,8 @@ app.get('/index.html', function (req, res, next) {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        },
-        agentOptions: {
-          secureProtocol: 'SSLv3_method',
         }
-        useQuerystring: true,
-        json: true,
-        resolveWithFullResponse: true,
-        followRedirect: false,
-        followOriginalHttpMethod: true,
-        removeRefererHeader: false,
-        simple: false //handle promise other than 200
+
     };
     console.log(options);
 
