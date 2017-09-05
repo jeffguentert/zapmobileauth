@@ -35,7 +35,7 @@ app.get('/index.html', function (req, res, next) {
          var respJson = JSON.parse(a);
          //res.send(respJson.sessionToken);
          console.log('r', respJson.sessionToken);
-         getAuthCode(respJson.sessionToken, req.query.username);
+         getAuthCode(respJson.sessionToken);
       })
       .catch(function (err) {
         // Deal with the error
@@ -55,7 +55,7 @@ app.get('/index.html', function (req, res, next) {
 
 
 
-  let getAuthCode = function (st, un) {
+  let getAuthCode = function (st) {
     let options = {
         uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
         method: "GET",
@@ -65,9 +65,8 @@ app.get('/index.html', function (req, res, next) {
             scope: "openid",
             response_type: "id_token",
             response_mode: "fragment",
-            nonce: "staticState",
-            state: "staticState",
-            sessionUsername: un,
+            nonce: "static-state",
+            state: "static-state",
             redirect_uri: "https://zapmobileauth.herokuapp.com/index.html"
         },
         resolveWithFullResponse: true,
