@@ -76,7 +76,8 @@ app.get('/index.html', function (req, res, next) {
         useQuerystring: true,
         json: true,
         resolveWithFullResponse: true,
-        followAllRedirects: true,
+        followAllRedirects: false,
+        removeRefererHeader: true,
         simple: false //handle promise other than 200
     };
     console.log(options);
