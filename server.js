@@ -71,14 +71,7 @@ app.get('/index.html', function (req, res, next) {
         simple: false //handle promise other than 200
     };
     console.log(options);
-    rp(options).then(function (a) {
-       returnResponseToClient(a);
-      // Handle the response
-    })
-    .catch(function (err) {
-      // Deal with the error
-      returnResponseToClient(err);
-    })
+    rp(options).pipe(fs.createWriteStream('doodle.png'))
   }
   function returnResponseToClient(r) {
     res.send(r);
