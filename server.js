@@ -67,13 +67,11 @@ console.log('in index', req.query);
         },
         useQuerystring: true,
         followRedirect: false
-        /*
-        resolveWithFullResponse: true,
-        followRedirect: false,
-        followOriginalHttpMethod: false,
+        resolveWithFullResponse: true,        
+        followOriginalHttpMethod: true,
         removeRefererHeader: false,
         simple: false //handle promise other than 200
-        */
+
     };
     console.log(options);
     rp(options).then(function (a) {
