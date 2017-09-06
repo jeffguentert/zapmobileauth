@@ -66,8 +66,8 @@ console.log('in index', req.query);
             state: "static-state"
         },
         useQuerystring: true,
-        followRedirect: false
-        resolveWithFullResponse: true,        
+        followRedirect: false,
+        resolveWithFullResponse: true,
         followOriginalHttpMethod: true,
         removeRefererHeader: false,
         simple: false //handle promise other than 200
