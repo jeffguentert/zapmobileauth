@@ -61,7 +61,7 @@ console.log('in index', req.query);
             response_type: "id_token",
             response_mode: "fragment",
             scope: "openid",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html?resp",
             nonce: "static-once",
             state: "static-state"
         },
@@ -90,9 +90,14 @@ console.log('in index', req.query);
     })
     */
   }
+
   function returnResponseToClient(r) {
     res.send(r);
   }
-});
 
+});
+app.get('/index.html?resp', function (req, res, next) {
+  console.log('in resp', req.query);
+  res.send(res);
+});
 app.listen(port);
