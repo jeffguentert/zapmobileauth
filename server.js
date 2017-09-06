@@ -14,7 +14,9 @@ app.use(function(req, res, next) {
 
 app.get('/index.html', function (req, res, next) {
 
-  //if(req.query.username) {
+  if(respJson.sessionToken) {
+    getAuthCode(respJson.sessionToken);
+  }
     let getSessionToken = function() {
       let options = {
           uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
@@ -37,7 +39,7 @@ app.get('/index.html', function (req, res, next) {
          var respJson = JSON.parse(a);
          res.send(respJson.sessionToken);
          console.log('r', respJson.sessionToken);
-         //getAuthCode(respJson.sessionToken);
+         //
       })
       .catch(function (err) {
         // Deal with the error
