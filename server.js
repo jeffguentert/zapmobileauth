@@ -107,5 +107,7 @@ request(options, callback)
   }
 
 });
-
+app.get('/index.html?resp', function (req, res, next) {
+  res.send(res);
+})/
 app.listen(port);
