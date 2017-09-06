@@ -87,28 +87,33 @@ console.log('bod', res);
 
 function callback(error, response, body) {
   returnResponseToClient(error + body + response.statusCode);
-//  console.log('error:', error); // Print the error if one occurred
-//  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-//  console.log('body:', body); // Print the HTML for the Google homepage.
-}
-
-request(options, callback)
-/*
-    console.log(options);
-    rp(options).then(function (a) {
-       returnResponseToClient(a);
-      // Handle the response
-    })
-    .catch(function (err) {
-      // Deal with the error
-      returnResponseToClient(err);
-    })
-    */
+  //  console.log('error:', error); // Print the error if one occurred
+  //  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  //  console.log('body:', body); // Print the HTML for the Google homepage.
   }
+
+  request(options, callback)
+  /*
+      console.log(options);
+      rp(options).then(function (a) {
+         returnResponseToClient(a);
+        // Handle the response
+      })
+      .catch(function (err) {
+        // Deal with the error
+        returnResponseToClient(err);
+      })
+      */
+  }
+
   function returnResponseToClient(r) {
     res.send(r);
   }
 
+});
+
+app.get('/result.html', function (req, res, next) {
+  console.log('in resul', res);
 });
 
 app.listen(port);
