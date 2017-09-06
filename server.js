@@ -35,9 +35,9 @@ app.get('/index.html', function (req, res, next) {
       rp(options).then(function (a) {
          //res.write( response);
          var respJson = JSON.parse(a);
-         //res.send(respJson.sessionToken);
+         res.send(respJson.sessionToken);
          console.log('r', respJson.sessionToken);
-         getAuthCode(respJson.sessionToken);
+         //getAuthCode(respJson.sessionToken);
       })
       .catch(function (err) {
         // Deal with the error
@@ -107,7 +107,5 @@ request(options, callback)
   }
 
 });
-app.get('/index.html?resp', function (req, res, next) {
-  res.send(res);
-})/
+
 app.listen(port);
