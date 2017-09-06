@@ -53,7 +53,7 @@ console.log('in index', req.query);
 
   let getAuthCode = function (st) {
     let options = {
-        uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize/",
+        uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
         method: "GET",
         qs: {
             client_id: oid,
@@ -84,7 +84,7 @@ console.log('in index', req.query);
       // Deal with the error
       returnResponseToClient(err);
     })
-    
+
   }
 
   function returnResponseToClient(r) {
