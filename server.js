@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const rp = require('request-promise');
+const request = require('request');
 const port = process.env.PORT || 3000;
 const oid = process.env.okta_cid || "123";
 require('request-debug')(rp);
 app.use(function(req, res, next) {
-  //res.header("Access-Control-Allow-Origin", "http://localhost");
-  //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
+  res.header("Access-Control-Allow-Origin", "http://localhost");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
   next();
 });
 
@@ -66,16 +67,28 @@ app.get('/index.html', function (req, res, next) {
             response_mode: "fragment",
             scope: "openid",
             redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
-            nonce: "static-state",
+            nonce: "static-once",
             state: "static-state"
         },
-        useQuerystring: false,      
+        useQuerystring: true,
+        /*
         resolveWithFullResponse: true,
         followRedirect: false,
         followOriginalHttpMethod: false,
         removeRefererHeader: false,
         simple: false //handle promise other than 200
+        */
     };
+
+function callback(error, response, body) {
+  returnResponseToClient(error + body + response.statusCode);
+//  console.log('error:', error); // Print the error if one occurred
+//  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+//  console.log('body:', body); // Print the HTML for the Google homepage.
+}
+
+request(options, callback)
+/*
     console.log(options);
     rp(options).then(function (a) {
        returnResponseToClient(a);
@@ -85,6 +98,7 @@ app.get('/index.html', function (req, res, next) {
       // Deal with the error
       returnResponseToClient(err);
     })
+    */
   }
   function returnResponseToClient(r) {
     res.send(r);
