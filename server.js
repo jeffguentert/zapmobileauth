@@ -74,6 +74,12 @@ console.log('in index', req.query);
 
     };
     console.log(options);
+    request.get(options, callback).pipe(fs.createWriteStream('doodle.png'))
+
+    function callback(e) {
+      console.log(e);
+    }
+    /*
     rp(options).then(function (a) {
        returnResponseToClient(a);
       // Handle the response
@@ -82,6 +88,7 @@ console.log('in index', req.query);
       // Deal with the error
       returnResponseToClient(err);
     })
+    */
   }
   function returnResponseToClient(r) {
     res.send(r);
