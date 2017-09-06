@@ -71,6 +71,7 @@ app.get('/index.html', function (req, res, next) {
             state: "static-state"
         },
         useQuerystring: true,
+        followRedirect: false
         /*
         resolveWithFullResponse: true,
         followRedirect: false,
