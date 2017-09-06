@@ -70,7 +70,7 @@ console.log('bod', res);
             response_type: "id_token",
             response_mode: "fragment",
             scope: "openid",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
+            redirect_uri: "https://zapmobileauth.herokuapp.com/result.html",
             nonce: "static-once",
             state: "static-state"
         },
