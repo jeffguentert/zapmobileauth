@@ -27,8 +27,8 @@ console.log('bod', res);
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            'username': req.query.username,
-            'password': req.query.password,
+            'username': 'jeff.guentert@zaplabs.com'//req.query.username,
+            'password': 'Test12345',//req.query.password,
             'options': {
               "multiOptionalFactorEnroll": false,
               "warnBeforePasswordExpired": false
@@ -38,8 +38,9 @@ console.log('bod', res);
       rp(options).then(function (a) {
          //res.write( response);
          let respJson = JSON.parse(a);
-         res.send(respJson.sessionToken);
-         console.log('r', respJson.sessionToken);
+         //res.send(respJson.sessionToken);
+         getAuthCode(respJson.sessionToken);
+         console.log('session r', respJson.sessionToken);
          //
       })
       .catch(function (err) {
@@ -70,7 +71,7 @@ console.log('bod', res);
             response_type: "id_token",
             response_mode: "fragment",
             scope: "openid",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/result.html",
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
             nonce: "static-once",
             state: "static-state"
         },
@@ -86,6 +87,7 @@ console.log('bod', res);
     };
 
 function callback(error, response, body) {
+  console.log('call', error, response, body);
   returnResponseToClient(error + body + response.statusCode);
   //  console.log('error:', error); // Print the error if one occurred
   //  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -110,10 +112,6 @@ function callback(error, response, body) {
     res.send(r);
   }
 
-});
-
-app.get('/result.html', function (req, res, next) {
-  console.log('in resul', res);
 });
 
 app.listen(port);
