@@ -61,11 +61,10 @@ console.log('in index', req.query);
             response_type: "id_token",
             response_mode: "fragment",
             scope: "openid",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html?resp",
+            redirect_uri: "http://zapmobileauth.herokuapp.com/index.html?resp",
             nonce: "static-once",
             state: "static-state"
         },
-        useQuerystring: true,
         followRedirect: false,
         resolveWithFullResponse: true,
         followOriginalHttpMethod: true,
@@ -73,8 +72,6 @@ console.log('in index', req.query);
         simple: false //handle promise other than 200
 
     };
-    console.log(options);
-
 
     rp(options).then(function (a) {
        returnResponseToClient(a);
