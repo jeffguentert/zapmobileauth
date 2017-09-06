@@ -61,13 +61,13 @@ console.log('in index', req.query);
             response_type: "id_token",
             response_mode: "fragment",
             scope: "openid",
-            redirect_uri: "http://zapmobileauth.herokuapp.com/index.html?resp",
+            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html?resp",
             nonce: "static-once",
             state: "static-state"
         },
         followRedirect: false,
         resolveWithFullResponse: true,
-        followOriginalHttpMethod: true,
+        followOriginalHttpMethod: false,
         removeRefererHeader: false,
         simple: false //handle promise other than 200
 
@@ -89,8 +89,5 @@ console.log('in index', req.query);
   }
 
 });
-app.get('/index.html?resp', function (req, res, next) {
-  console.log('in resp', req.query);
-  res.send(res);
-});
+
 app.listen(port);
