@@ -17,7 +17,7 @@ app.get('/index.html', function (req, res, next) {
 //  if(respJson.sessionToken) {
 //    getAuthCode(respJson.sessionToken);
 //  }
-console.log('bod': res);
+console.log('bod', res);
     let getSessionToken = function() {
       let options = {
           uri: 'https://dev-505299-admin.oktapreview.com/api/v1/authn',
