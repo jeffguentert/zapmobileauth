@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/index.html', function (req, res, next) {
-
+  let respJson = JSON.parse(res);
   if(respJson.sessionToken) {
     getAuthCode(respJson.sessionToken);
   }
@@ -36,7 +36,7 @@ app.get('/index.html', function (req, res, next) {
       }
       rp(options).then(function (a) {
          //res.write( response);
-         var respJson = JSON.parse(a);
+         let respJson = JSON.parse(a);
          res.send(respJson.sessionToken);
          console.log('r', respJson.sessionToken);
          //
