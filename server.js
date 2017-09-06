@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 const oid = process.env.okta_cid || "123";
 require('request-debug')(rp);
 app.use(function(req, res, next) {
+  console.log( req.root);
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, uuid, zap_mobile_session");
   next();
@@ -58,7 +59,7 @@ app.get('/index.html', function (req, res, next) {
 
   let getAuthCode = function (st) {
     let options = {
-        uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize",
+        uri: "https://dev-505299-admin.oktapreview.com/oauth2/v1/authorize/",
         method: "GET",
         qs: {
             client_id: oid,
