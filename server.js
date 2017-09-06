@@ -24,8 +24,8 @@ console.log('in index', req.query);
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            'username': 'jeff.guentert@zaplabs.com',//req.query.username,
-            'password': 'Test12345',//req.query.password,
+            'username': req.query.username,
+            'password': req.query.password,
             'options': {
               "multiOptionalFactorEnroll": false,
               "warnBeforePasswordExpired": false
@@ -61,7 +61,7 @@ console.log('in index', req.query);
             response_type: "id_token",
             response_mode: "fragment",
             scope: "openid",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html?resp",
+            redirect_uri: "http://localhost:3000/index.html",
             nonce: "static-once",
             state: "static-state"
         },
