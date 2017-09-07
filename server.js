@@ -3,7 +3,10 @@ const app = express();
 const rp = require('request-promise');
 const request = require('request');
 const port = process.env.PORT || 3000;
-const oid = process.env.okta_cid || "0oabwlejtqISPrMij0h7";
+const oid = process.env.okta_cid || "12345";
+const oktaauthn = process.env.oktaauthn;
+const oktaauthorize = process.env.oktaauthorize;
+const redirct_uri = process.env.redirecturi;
 //require('request-debug')(rp);
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -14,7 +17,7 @@ app.use(function(req, res, next) {
 app.get('/index.html', function (req, res, next) {
   let getSessionToken = function() {
     let options = {
-        uri: 'https://dev-505299.oktapreview.com/api/v1/authn',
+        uri: oktaauthn,
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -43,7 +46,7 @@ app.get('/index.html', function (req, res, next) {
 
   let getAuthCode = function (st) {
     let options = {
-        uri: "https://dev-505299.oktapreview.com/oauth2/v1/authorize",
+        uri: oktaauthorize,
         method: "GET",
         qs: {
             client_id: oid,
@@ -51,7 +54,7 @@ app.get('/index.html', function (req, res, next) {
             response_type: "id_token",
             response_mode: "fragment",
             scope: "openid",
-            redirect_uri: "https://zapmobileauth.herokuapp.com/index.html",
+            redirect_uri: redirct_uri,
             nonce: "static-once",
             state: "static-state"
         },
@@ -64,6 +67,7 @@ app.get('/index.html', function (req, res, next) {
     };
 
     rp(options).then(function (a) {
+      //todo make dynamic based on location
       var start = a.headers.location.indexOf("#id_token=") + 10;
       var end = a.headers.location.indexOf("&state=") - 42;
       var result = a.headers.location.substr(start,end)
