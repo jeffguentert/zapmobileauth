@@ -65,7 +65,7 @@ app.get('/index.html', function (req, res, next) {
         useQuerystring: true,
         simple: false //handle promise other than 200
     };
-
+	console.log('options log: ', options);
     rp(options).then(function (a) {
       //todo make dynamic based on location
       var start = a.headers.location.indexOf("#id_token=") + 10;
