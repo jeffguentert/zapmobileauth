@@ -67,6 +67,7 @@ app.get('/index.html', function (req, res, next) {
     };
 	console.log('options log: ', options);
     rp(options).then(function (a) {
+    console.log('resp: ', a);
       //todo make dynamic based on location
       var start = a.headers.location.indexOf("#id_token=") + 10;
       var end = a.headers.location.indexOf("&state=") - 42;
