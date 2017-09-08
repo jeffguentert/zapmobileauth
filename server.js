@@ -74,7 +74,7 @@ app.get('/index.html', function (req, res, next) {
           result = arry[i].substr(5);
         }
       }
-      console.log(result);
+      console.log(a);
       returnResponseToClient(result);
       // Handle the response
     })
