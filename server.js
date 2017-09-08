@@ -67,13 +67,15 @@ app.get('/index.html', function (req, res, next) {
     };
 	console.log('options log: ', options);
     rp(options).then(function (a) {
-    console.log('resp: ', a);
-      //todo make dynamic based on location
-      var start = a.headers.location.indexOf("#id_token=");
-      var end = a.headers.location.indexOf("&state=");
-      var result = a.headers.location.substr(start,end)
-      console.log(a);
-      returnResponseToClient(a);
+      var arry = a.headers.location.split("&"),
+          result;
+      for(var i=0; i< arry.length; i++) {
+        if(arry[i].indexOf("code=") > -1) {
+          result = arry[i].substr(5);
+        }
+      }
+      console.log(result);
+      returnResponseToClient(result);
       // Handle the response
     })
     .catch(function (err) {
