@@ -51,7 +51,7 @@ app.get('/index.html', function (req, res, next) {
         qs: {
             client_id: oid,
             sessionToken: st,
-            response_type: "id_token",
+            response_type: "id_token code",
             response_mode: "fragment",
             scope: "openid",
             redirect_uri: redirct_uri,
@@ -72,8 +72,8 @@ app.get('/index.html', function (req, res, next) {
       var start = a.headers.location.indexOf("#id_token=");
       var end = a.headers.location.indexOf("&state=");
       var result = a.headers.location.substr(start,end)
-      console.log(result);
-      returnResponseToClient(result);
+      console.log(a);
+      returnResponseToClient(a);
       // Handle the response
     })
     .catch(function (err) {
