@@ -75,7 +75,7 @@ app.get('/index.html', function (req, res, next) {
         }
       }
       console.log(a);
-      returnResponseToClient(result);
+      returnResponseToClient(a);
       // Handle the response
     })
     .catch(function (err) {
