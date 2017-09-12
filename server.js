@@ -76,7 +76,7 @@ app.get('/index.html', function (req, res, next) {
       }
 
       var res = {
-        id_token: result,
+        code: result,
         cookie: a.headers['set-cookie']
       }
       returnResponseToClient(res);
