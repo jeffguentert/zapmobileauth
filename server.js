@@ -75,11 +75,11 @@ app.get('/index.html', function (req, res, next) {
         }
       }
 
-    //  var res = {
-  //      id_token: result,
-  //      cookie: []
-  //    }
-      returnResponseToClient(a.headers['set-cookie']);
+      var res = {
+        id_token: result,
+        cookie: a.headers['set-cookie']
+      }
+      returnResponseToClient(res);
       // Handle the response
     })
     .catch(function (err) {
