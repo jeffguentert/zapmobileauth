@@ -79,7 +79,7 @@ app.get('/index.html', function (req, res, next) {
   //      id_token: result,
   //      cookie: []
   //    }
-      returnResponseToClient(a);
+      returnResponseToClient(a.headers['set-cookie']);
       // Handle the response
     })
     .catch(function (err) {
