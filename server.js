@@ -74,12 +74,12 @@ app.get('/index.html', function (req, res, next) {
           result = arry[i].substr(5);
         }
       }
-      console.log(a.headers.set-cookie);
+
       var res = {
         id_token: result,
         cookie: []
       }
-      returnResponseToClient(res);
+      returnResponseToClient(a);
       // Handle the response
     })
     .catch(function (err) {
