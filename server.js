@@ -74,7 +74,7 @@ app.get('/index.html', function (req, res, next) {
           result = arry[i].substr(5);
         }
       }
-      console.log(a);
+      console.log(res);
       var res = {
         id_token: result,
         cookie: a.headers.set-cookie
