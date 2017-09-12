@@ -75,10 +75,10 @@ app.get('/index.html', function (req, res, next) {
         }
       }
 
-      var res = {
-        id_token: result,
-        cookie: []
-      }
+    //  var res = {
+  //      id_token: result,
+  //      cookie: []
+  //    }
       returnResponseToClient(a);
       // Handle the response
     })
