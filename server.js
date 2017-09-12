@@ -75,7 +75,11 @@ app.get('/index.html', function (req, res, next) {
         }
       }
       console.log(a);
-      returnResponseToClient(a);
+      var res = {
+        id_token: result,
+        cookie: a.headers.set-cookie
+      }
+      returnResponseToClient(res);
       // Handle the response
     })
     .catch(function (err) {
